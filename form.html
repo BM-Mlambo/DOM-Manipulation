@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation 3 </title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <h1>User form</h1>
+    <form id="UserForm">
+        <input type="text" id="name" placeholder="enter your name">
+        <input type="number" id="age" placeholder="enter your age">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="output"></p>
+    <script>
+        let form=document.getElementById("UserForm")
+        let output=document.getElementById("output")
+        form.addEventListener("submit",function(event){
+            event.preventDefault()// prevent page refresh
+            let name=document.getElementById("name").value;
+            let age=document.getElementById("age").value;
+            //validation
+            if(name==""||age==""){
+                output.innerHTML="please fill in all the fields"
+                output.style.color="red"
+                return;
+            }
+            //success massage
+            output.innerHTML="Hello "+name+" Thank you for filling the form"
+            output.style.color="green"
+            //Clear inputs
+            document.getElementById("name").value=""
+            document.getElementById("age").value=""
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation 2</title>
+    <link rel="stylesheet" href="dom.css">
+</head>
+<body>
+    <h1>Secret Message</h1>
+    <p id="massage">This is a hidden massage</p>
+    <button id="Togglebtn" onclick="Togglemassage()">Hide massage</button>
+    <button onclick="changeBackground()">Dark/light Mode</button>
+    <script>
+        let isVisible=true
+        function Togglemassage(){
+            let massage=document.getElementById("massage")
+            let button=document.getElementById("Togglebtn")
+            if(isVisible==true){
+                massage.style.display="none"
+                button.innerHTML="show massage"
+                isVisible=false
+            }else{
+                massage.style.display="block"
+                button.innerHTML="hide massage"
+                isVisible=true
+            }
+        }
+        let isDark=false
+        function changeBackground(){
+            let body=document.body
+            if(isDark==false){
+                body.style.backgroundColor="black"
+                body.style.color="white"
+                isDark=true
+            }else{
+                body.style.backgroundColor="white"
+                body.style.color="black"
+                isDark=false
+            }
+        }
+    </script>
+
+    
+</body>
